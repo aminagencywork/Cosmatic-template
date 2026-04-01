@@ -622,20 +622,18 @@ const AdminDashboard = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('/api/admin/check');
-        const data = await res.json();
+        const response = await fetch('/api/admin/check');
+        const data = await response.json();
         
-        // Use localStorage as a fallback if cookie fails in iframe
-        const localAuth = localStorage.getItem('admin_authenticated') === 'true';
-        
-        if (!data.authenticated && !localAuth) {
+        if (!data.authenticated) {
+          localStorage.removeItem('admin_authenticated');
           navigate('/admin');
         }
-      } catch (e) {
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        // Fallback to local storage if API fails
         const localAuth = localStorage.getItem('admin_authenticated') === 'true';
-        if (!localAuth) {
-          navigate('/admin');
-        }
+        if (!localAuth) navigate('/admin');
       } finally {
         setChecking(false);
       }
@@ -643,8 +641,8 @@ const AdminDashboard = () => {
     checkAuth();
   }, [navigate]);
 
-  const handleLogout = async () => {
-    await fetch('/api/admin/logout', { method: 'POST' });
+  const handleLogout = () => {
+    // Just clear local auth for Vercel compatibility
     localStorage.removeItem('admin_authenticated');
     toast.success('Logged out');
     navigate('/admin');

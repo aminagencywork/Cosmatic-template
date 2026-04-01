@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock, ArrowRight, ShieldCheck } from 'lucide-react';
 import { toast } from 'sonner';
+import { config } from '../config';
 
 const AdminLoginPage = () => {
   const [password, setPassword] = useState('');
@@ -26,7 +27,7 @@ const AdminLoginPage = () => {
         toast.success('Login successful');
         navigate('/admin/dashboard');
       } else {
-        toast.error('Invalid password');
+        toast.error(data.message || 'Invalid password');
       }
     } catch (error) {
       toast.error('Login failed. Please try again.');
