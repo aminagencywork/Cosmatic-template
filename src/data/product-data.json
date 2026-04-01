@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "name": "Midnight Recovery Serum",
+    "brand": "Lumière Essentials",
+    "category": "Skincare",
+    "price": 2450,
+    "original_price": 3200,
+    "discount": 23,
+    "skin_types": ["Dry", "Combination", "Sensitive"],
+    "shades": [],
+    "images": [
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "A potent overnight serum that visibly restores skin's radiance and reduces the appearance of fine lines while you sleep.",
+    "ingredients": "Aqua, Glycerin, Niacinamide, Squalane, Rosehip Oil, Vitamin E, Hyaluronic Acid.",
+    "created_at": "2026-03-01T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "name": "Velvet Matte Lipstick",
+    "brand": "Velvet Touch",
+    "category": "Makeup",
+    "price": 850,
+    "original_price": 1200,
+    "discount": 29,
+    "skin_types": ["All Skin Types"],
+    "shades": ["Rose Petal", "Crimson Red", "Nude Blush", "Deep Berry"],
+    "images": [
+      "https://images.unsplash.com/photo-1586776977607-310e9c725c37?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1591360236630-4ed9bc3d67af?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "A long-wearing, high-pigment lipstick with a smooth matte finish that stays comfortable all day.",
+    "ingredients": "Isododecane, Dimethicone, Trimethylsiloxysilicate, Polyethylene, Disteardimonium Hectorite.",
+    "created_at": "2026-03-05T12:00:00Z"
+  },
+  {
+    "id": "3",
+    "name": "Hydra-Glow Daily Moisturizer",
+    "brand": "Glow Lab",
+    "category": "Skincare",
+    "price": 1800,
+    "original_price": 1800,
+    "discount": 0,
+    "skin_types": ["Oily", "Combination"],
+    "shades": [],
+    "images": [
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "Lightweight, oil-free moisturizer that provides 24-hour hydration and a natural, healthy glow.",
+    "ingredients": "Aqua, Aloe Vera, Green Tea Extract, Hyaluronic Acid, Panthenol.",
+    "created_at": "2026-03-10T09:00:00Z"
+  },
+  {
+    "id": "4",
+    "name": "Silk Protein Hair Mask",
+    "brand": "Pure Bloom",
+    "category": "Haircare",
+    "price": 1250,
+    "original_price": 1500,
+    "discount": 16,
+    "skin_types": ["All Hair Types"],
+    "shades": [],
+    "images": [
+      "https://images.unsplash.com/photo-1527799822344-42ad8c03efc3?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1532713109658-f106392bb5c5?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "Deeply nourishing hair mask that repairs damage and adds incredible shine and softness.",
+    "ingredients": "Hydrolyzed Silk Protein, Argan Oil, Shea Butter, Keratin.",
+    "created_at": "2026-03-15T14:00:00Z"
+  },
+  {
+    "id": "5",
+    "name": "Radiant Foundation SPF 30",
+    "brand": "Lumière Essentials",
+    "category": "Makeup",
+    "price": 2100,
+    "original_price": 2800,
+    "discount": 25,
+    "skin_types": ["Dry", "Normal"],
+    "shades": ["Fair", "Light", "Medium", "Tan", "Deep"],
+    "images": [
+      "https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "A medium-coverage foundation that evens out skin tone and provides a luminous, dewy finish with sun protection.",
+    "ingredients": "Titanium Dioxide, Zinc Oxide, Glycerin, Vitamin C, Mica.",
+    "created_at": "2026-03-20T11:00:00Z"
+  },
+  {
+    "id": "6",
+    "name": "Vitamin C Brightening Cleanser",
+    "brand": "Glow Lab",
+    "category": "Skincare",
+    "price": 950,
+    "original_price": 1100,
+    "discount": 13,
+    "skin_types": ["All Skin Types"],
+    "shades": [],
+    "images": [
+      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=800"
+    ],
+    "description": "Gentle foaming cleanser that removes impurities and brightens the complexion with pure Vitamin C.",
+    "ingredients": "Aqua, Sodium Lauroyl Sarcosinate, Ascorbic Acid, Citrus Extract.",
+    "created_at": "2026-03-22T08:00:00Z"
+  }
+]
