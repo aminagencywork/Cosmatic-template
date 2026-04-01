@@ -9,8 +9,8 @@
 export const config = {
   appName: "Lumière Beauty",
   adminPassword: "admin123", // Default admin password for the portal
-  whatsappNumber: "919876543210", // Your business WhatsApp number
+  whatsappNumber: "917758846111", // Your business WhatsApp number
   currency: "₹",
-  shippingThreshold: 999,
+  shippingThreshold: 100,
   freeShippingLabel: "Free Shipping on orders over ₹999",
 };
