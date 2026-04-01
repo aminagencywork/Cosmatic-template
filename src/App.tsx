@@ -201,14 +201,14 @@ function AppContent() {
     <div className="min-h-screen flex flex-col">
       {!isAdminRoute && <Navbar />}
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ProductListingPage />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/admin" element={<AdminLoginPage />} />
-          <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<ProductListingPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/admin" element={<AdminLoginPage />} />
+            <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
+          </Routes>
       </main>
       {!isAdminRoute && <Footer />}
       <Toaster position="bottom-right" richColors />

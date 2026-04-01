@@ -8,7 +8,7 @@ import { formatPrice } from '../lib/utils';
 import { config } from '../config';
 import ProductCard from '../components/ProductCard';
 
-import heroProduct from '../assets/hero_makeup_image.png';
+import heroProduct from '../assets/hero_makeup_image.jpg';
 
 const Hero = () => {
   return (
