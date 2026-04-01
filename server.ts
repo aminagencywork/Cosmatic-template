@@ -1,8 +1,10 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import * as cookie from "cookie";
-import * as jwt from "jsonwebtoken";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const cookie = require("cookie");
+const jwt = require("jsonwebtoken");
 import { config } from "./src/config";
 
 const __filename = fileURLToPath(import.meta.url);
