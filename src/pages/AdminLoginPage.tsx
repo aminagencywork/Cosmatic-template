@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Lock, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
 import { toast } from 'sonner';
-import { config } from '../config';
+import { supabase } from '../lib/supabase';
 
 const AdminLoginPage = () => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -14,23 +15,17 @@ const AdminLoginPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
 
-      const data = await response.json();
+      if (error) throw error;
 
-      if (data.success) {
-        localStorage.setItem('admin_authenticated', 'true');
-        toast.success('Login successful');
-        navigate('/admin/dashboard');
-      } else {
-        toast.error(data.message || 'Invalid password');
-      }
-    } catch (error) {
-      toast.error('Login failed. Please try again.');
+      toast.success('Login successful');
+      navigate('/admin/dashboard');
+    } catch (error: any) {
+      toast.error(error.message || 'Login failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
@@ -50,16 +45,36 @@ const AdminLoginPage = () => {
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-xs font-bold uppercase tracking-widest text-primary/60 mb-2 ml-1">
-              Enter Admin Password
+              Admin Email
             </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full px-6 py-4 bg-neutral rounded-2xl border-none focus:ring-2 focus:ring-accent outline-none transition-all"
-              required
-            />
+            <div className="relative">
+              <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/20" size={18} />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="admin@example.com"
+                className="w-full pl-14 pr-6 py-4 bg-neutral rounded-2xl border-none focus:ring-2 focus:ring-accent outline-none transition-all"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-widest text-primary/60 mb-2 ml-1">
+              Password
+            </label>
+            <div className="relative">
+              <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-primary/20" size={18} />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full pl-14 pr-6 py-4 bg-neutral rounded-2xl border-none focus:ring-2 focus:ring-accent outline-none transition-all"
+                required
+              />
+            </div>
           </div>
 
           <button

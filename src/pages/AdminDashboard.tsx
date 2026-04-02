@@ -622,18 +622,14 @@ const AdminDashboard = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('/api/admin/check');
-        const data = await response.json();
+        const { data: { session } } = await supabase.auth.getSession();
         
-        if (!data.authenticated) {
-          localStorage.removeItem('admin_authenticated');
+        if (!session) {
           navigate('/admin');
         }
       } catch (error) {
         console.error('Auth check failed:', error);
-        // Fallback to local storage if API fails
-        const localAuth = localStorage.getItem('admin_authenticated') === 'true';
-        if (!localAuth) navigate('/admin');
+        navigate('/admin');
       } finally {
         setChecking(false);
       }
@@ -641,11 +637,14 @@ const AdminDashboard = () => {
     checkAuth();
   }, [navigate]);
 
-  const handleLogout = () => {
-    // Just clear local auth for Vercel compatibility
-    localStorage.removeItem('admin_authenticated');
-    toast.success('Logged out');
-    navigate('/admin');
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      toast.success('Logged out successfully');
+      navigate('/admin');
+    } catch (error) {
+      toast.error('Logout failed');
+    }
   };
 
   if (checking) return null;
